@@ -26,11 +26,13 @@ export class AuthService {
     res.cookie('RefreshToken', RefreshToken, {
       httpOnly: true,
       secure: true,
+      maxAge: 24 * 60 * 60 * 3000,
       domain: this.configService.get('DOMAIN_URL'),
     });
     res.cookie('AccessToken', AccessToken, {
       httpOnly: true,
       secure: true,
+      maxAge: 24 * 60 * 60 * 1000,
       domain: this.configService.get('DOMAIN_URL'),
     });
   }
