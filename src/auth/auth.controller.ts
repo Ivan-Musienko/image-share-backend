@@ -100,7 +100,9 @@ export class AuthController {
       UserAgent: userAgent,
     });
     this.authService.setAuthCookies(res, RefreshToken, AccessToken);
-    res.redirect('https://9d8f-193-107-107-19.ngrok-free.app/account');
+    res.redirect(
+      `${this.configService.get('DOMAIN_PROTOCOL')}://${this.configService.get('DOMAIN_URL')}/account`,
+    );
   }
 
   @UseGuards(RefreshTokenGuard)

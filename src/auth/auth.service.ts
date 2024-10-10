@@ -26,10 +26,12 @@ export class AuthService {
     res.cookie('RefreshToken', RefreshToken, {
       httpOnly: true,
       secure: true,
+      domain: this.configService.get('DOMAIN_URL'),
     });
     res.cookie('AccessToken', AccessToken, {
       httpOnly: true,
       secure: true,
+      domain: this.configService.get('DOMAIN_URL'),
     });
   }
 
