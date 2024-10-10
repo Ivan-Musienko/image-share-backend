@@ -10,6 +10,7 @@ import { ImageKitConfig } from '../configs/imagekit.config';
 // import { JwtModule } from '@nestjs/jwt';
 // import { JwtRegisterAsyncOptions } from 'configs/jwt-default.config';
 import { SharedImagesModule } from './shared-images/shared-images.module';
+import { WebhockModule } from './webhock/webhock.module';
 @Module({
   imports: [
     UserModule,
@@ -28,6 +29,7 @@ import { SharedImagesModule } from './shared-images/shared-images.module';
     }),
     AuthModule,
     SharedImagesModule,
+    WebhockModule,
   ],
 })
 export class AppModule {}
