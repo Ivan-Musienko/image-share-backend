@@ -110,10 +110,13 @@ export class AuthController {
   async logout(@Req() req: Request, @Res() res: Response) {
     const refreshToken = req.cookies.RefreshToken;
 
+    res.clearCookie('AccessToken', {
+      domain: this.configService.get('DOMAIN_URL'),
+    });
+    res.clearCookie('RefreshToken', {
+      domain: this.configService.get('DOMAIN_URL'),
+    });
     await this.jwtAuthRepo.delete({ Refresh: refreshToken });
-
-    res.clearCookie('AccessToken');
-    res.clearCookie('RefreshToken');
 
     res.json({
       ok: 1,
