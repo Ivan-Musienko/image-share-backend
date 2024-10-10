@@ -24,7 +24,7 @@ export class SharedImagesService {
       fileName: `${UUID}.png`,
     });
     return {
-      Url: `https://9d8f-193-107-107-19.ngrok-free.app/api/shared-images/image/${fileId}`,
+      Url: `${this.configService.get('DOMAIN_PROTOCOL')}://${this.configService.get('DOMAIN_URL')}/api/shared-images/image/${fileId}`,
       FileName: name,
       Uuid: fileId,
     };
