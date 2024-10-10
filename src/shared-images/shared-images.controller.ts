@@ -50,7 +50,7 @@ export class SharedImagesController {
           fileType: /jpeg|png|jpg/,
         })
         .addMaxSizeValidator({
-          maxSize: 1024 * 1024,
+          maxSize: 1024 * 1024 * 100,
         })
         .build({
           errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
