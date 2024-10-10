@@ -112,9 +112,13 @@ export class AuthController {
 
     res.clearCookie('AccessToken', {
       domain: this.configService.get('DOMAIN_URL'),
+      sameSite: 'none',
+      secure: true,
     });
     res.clearCookie('RefreshToken', {
       domain: this.configService.get('DOMAIN_URL'),
+      sameSite: 'none',
+      secure: true,
     });
     await this.jwtAuthRepo.delete({ Refresh: refreshToken });
 
